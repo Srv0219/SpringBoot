@@ -63,14 +63,16 @@ public class BookService {
   }
 
   public void updateBook(Book book, int bid) {
-    /* list = list.stream().map(b -> {
-      if (b.getId() == bid) {
-        b.setTitle(book.getTitle());
-        b.setAuthor(book.getAuthor());
-
-      }
-      return b;
-    }).collect(Collectors.toList()); */
+    /*
+     * list = list.stream().map(b -> {
+     * if (b.getId() == bid) {
+     * b.setTitle(book.getTitle());
+     * b.setAuthor(book.getAuthor());
+     * 
+     * }
+     * return b;
+     * }).collect(Collectors.toList());
+     */
 
     book.setId(bid);
     this.bookRepository.save(book);
