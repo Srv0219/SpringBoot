@@ -2,11 +2,12 @@
 <section name="Workbench">
 	<list key="installedFeatures">
 		<item value="com.ianbrandt.tools.m2e.mdp.feature:0.0.4.201409291703"/>
+		<item value="io.emmet.eclipse:1.0.0.201401132323"/>
 		<item value="net.mihai-nita.ansicon:1.4.4.202102080044"/>
 		<item value="org.eclipse.buildship:3.1.5.v20210113-0929"/>
 		<item value="org.eclipse.egit.gitflow.feature:5.13.0.202109080827-r"/>
 		<item value="org.eclipse.egit:5.13.0.202109080827-r"/>
-		<item value="org.eclipse.emf.common:2.23.0.v20210618-0700"/>
+		<item value="org.eclipse.emf.common:2.24.0.v20210924-1718"/>
 		<item value="org.eclipse.emf.ecore:2.25.0.v20210816-0937"/>
 		<item value="org.eclipse.epp.mpc:1.9.1.v20210204-1408"/>
 		<item value="org.eclipse.help:2.3.700.v20210906-0500"/>
@@ -31,7 +32,7 @@
 		<item value="org.eclipse.tm.terminal.feature:10.4.0.202106130052"/>
 		<item value="org.eclipse.tm.terminal.view.feature:10.4.0.202108241639"/>
 		<item value="org.eclipse.userstorage:1.2.0.v20210517-0327"/>
-		<item value="org.eclipse.wst.common.fproj:3.7.3.v202007142017"/>
+		<item value="org.eclipse.wst.common.fproj:3.7.3.v202111212041"/>
 		<item value="org.eclipse.wst.json_ui.feature:1.1.10.v202103121626"/>
 		<item value="org.eclipse.wst.web_ui.feature:3.23.0.v202107272335"/>
 		<item value="org.eclipse.wst.xml.xpath2.processor.feature:2.0.302.v201909031400"/>

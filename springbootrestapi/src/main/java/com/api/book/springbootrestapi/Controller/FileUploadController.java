@@ -1,9 +1,6 @@
 package com.api.book.springbootrestapi.Controller;
 
-import javax.servlet.Servlet;
-
 import com.api.book.springbootrestapi.Helper.FileUploadHelper;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
