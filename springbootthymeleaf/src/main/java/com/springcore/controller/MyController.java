@@ -36,7 +36,13 @@ public class MyController {
 	
 	@GetMapping("/service")
 	public String srevicesHandler(Model model) {
-		
+		model.addAttribute("title","\\uD83D\\uDC7D");
+		model.addAttribute("subscribe", "Please subscribe my channel");
 		return "service";
+	}
+	
+	@GetMapping("/aboutnew")
+	public String newAbout(Model model) {
+			return "aboutnew";
 	}
 }

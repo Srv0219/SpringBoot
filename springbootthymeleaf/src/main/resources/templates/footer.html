@@ -16,10 +16,12 @@
 </head>
 <body>
 
-	<footer id="Fragmenttag" class="page-footer font-small blue" th:fragment="footer1">
+	<footer id="Fragmenttag" class="page-footer font-small blue" th:fragment="footer1(title,subtitle)">
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
     <a href="https://mdbootstrap.com/"> Crazyalliance.com</a>
   </div>
+  <h3 th:text="${title}"></h3>
+  <h4 th:text="${subtitle}"></h4>
 </footer>
 
 	<!-- Optional JavaScript -->
