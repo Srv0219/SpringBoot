@@ -19,7 +19,8 @@
 
 	<!-- navbar -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-primary">
-	<a class="navbar-brand font-monospace" href="#"><img src="https://img.icons8.com/doodle/42/000000/address-book.png"/>Smart Contact</a>
+	<a class="navbar-brand font-monospace" th:href="@{/}">
+	<img src="https://img.icons8.com/doodle/38/000000/address-book.png"/>Smart Contact</a>
 		
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
@@ -37,7 +38,7 @@
 				
 				<li class="nav-item"><a class="nav-link" href="#">About</a></li>
 				
-				<li class="nav-item"><a class="nav-link" href="#"
+				<li class="nav-item"><a class="nav-link" th:href="@{/user/index/}"
 					tabindex="-1" aria-disabled="true">Login</a></li>
 					
 					<li class="nav-item"><a class="nav-link"  th:href="@{/signup/}"

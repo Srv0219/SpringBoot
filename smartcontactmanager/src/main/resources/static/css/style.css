@@ -2,6 +2,7 @@
 
 .bg-primary {
 	background: #FFA500 !important;
+	color: white;
 }
 
 .banner {
@@ -13,8 +14,72 @@
 	color: white;
 }
 
-.my-card{
-	background:#FFE4B5 ;
-	margin-top:20px;
+.my-card {
+	background: #FFE4B5;
+	margin-top: 25px;
 	padding: 20px;
+}
+
+.text-info {
+	color: black;
+	font-style: normal;
+}
+
+/* side bar */
+@media only screen and(max-width:600px) {
+	.sidebar {
+		display: none;
+		width: 80% !important;
+		background: #FFFFE0;
+		height: 100vh;
+		position: fixed;
+		padding-top: 20px;
+	}
+	.content {
+		margin-left: 0% !important;
+	}
+}
+
+.sidebar {
+	width: auto;
+	background: #F5F5F5;
+	height: 100%;
+	position: fixed;
+	padding-top: 45px;
+}
+
+.sidebar a {
+	display: block;
+	width: 100%;
+	padding: 10px 25px;
+	text-decoration: none;
+	color: black;
+}
+
+.sidebar a:hover {
+	background: #DCDCDC;
+	 border-radius: 6px;
+	 margin: 1px 0;
+}
+
+.sidebar .divider {
+	height: .5px;
+	width: 100%;
+	margin-top: 10px;
+	
+	
+}
+
+.content {
+	
+	margin-left: 20px;
+	
+}
+
+.sidebar .crossBtn {
+	position: absolute;
+	top: 0;
+	right: 20px;
+	font-size: 36px;
+	cursor: pointer;
 }

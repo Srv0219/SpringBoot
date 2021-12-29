@@ -1,10 +1,14 @@
 package com.smart.controller;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
 import org.aspectj.weaver.NewConstructorTypeMunger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +26,9 @@ public class HomeController {
 
 	@Autowired
 	private UserRepository repository;
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 
 	@GetMapping("/")
 	public String home(Model model) {
@@ -44,8 +51,11 @@ public class HomeController {
 
 	// do_register
 	@PostMapping("/do_register")
-	public String registerUser(@ModelAttribute("user") User user,
-			@RequestParam(value = "agreement", defaultValue = "false") boolean agreement, Model model,
+	public String registerUser(
+			@Valid @ModelAttribute("user") User user,
+			BindingResult result1,
+			@RequestParam(value = "agreement", defaultValue = "false") boolean agreement,
+			Model model,
 			HttpSession session) {
 
 		try {
@@ -53,8 +63,14 @@ public class HomeController {
 			if (!agreement) {
 				throw new Exception("You have not agreed terms and condition");
 			}
+			if (result1.hasErrors()) {
+				System.out.println("Error : "+result1.toString());
+				model.addAttribute("user", user);
+				return "signup";
+			}
 			user.setRole("ROLE_USER");
 			user.setEnabled(true);
+			user.setPassword(passwordEncoder.encode(user.getPassword()));
 
 			System.out.println("Agreement : " + agreement);
 			System.out.println("User : " + user);
@@ -72,6 +88,12 @@ public class HomeController {
 			return "signup";
 		}
 
+	}
+	
+	@GetMapping("/login")
+	public String customLogin(Model model) {
+		model.addAttribute("title","Login Page");
+		return "login";
 	}
 
 	/*
