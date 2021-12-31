@@ -12,47 +12,16 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
+<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'
+	rel='stylesheet'>
 <link rel="stylesheet" th:href="@{/css/style.css}" />
 <title th:text="${title}"></title>
 </head>
 <body>
 
-	<!-- navbar -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-primary">
-		<a class="navbar-brand font-monospace" th:href="@{/}"> <img
-			src="https://img.icons8.com/doodle/38/000000/address-book.png" />Smart
-			Contact
-		</a>
-
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse ml-auto "
-			id="navbarSupportedContent">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link" th:href="@{/}">Home
-						<span class="sr-only">(current)</span>
-				</a></li>
 
 
-
-				<li class="nav-item"><a class="nav-link" tabindex="-1"
-					aria-disabled="true"> <span th:text="${user.name}"></span>
-				</a></li>
-
-				<li class="nav-item"><a class="nav-link" th:href="@{/logout}"
-					tabindex="-1" aria-disabled="true">Logout</a></li>
-			</ul>
-
-		</div>
-	</nav>
-	<!-- end navbar -->
-
-	<!-- Content area -->
+	<!-- Content area 
 	<div class="sidebar">
 	
 	 <span onclick="toggleSidebar()" class="crossBtn">&times</span>
@@ -64,14 +33,51 @@
 		<a href="" class="item">Settings</a> 
 		<a href="" th:href="@{/logout}" class="item">Logout</a>
 		<div class="divider"></div>
+	</div> -->
+
+	<div class="sidebar">
+		<div class="logo_content">
+			<div class="logo">
+				<div class="logo_name" th:text="${user.name}"></div>
+			</div>
+
+		</div>
+
+		<div class="unordered_list">
+
+			<a href="#" th:href="@{/user/index}"><i class='bx bx-home-alt'
+				style='color: #2F4F4F' id="icon_menu"></i><span class="links_name">Home</span>
+			</a> <a href="#"><i class='bx bxs-contact' style='color: #2F4F4F'
+				id="icon_menu"></i> <span class="links_name">Contacts</span> </a> <a
+				href="#" th:href="@{/user/add_contact_form}"><i
+				class='bx bxs-add-to-queue' style='color: #2F4F4F' id="icon_menu"></i><span
+				class="links_name">Add Contact</span> </a> <a href="#"><i
+				class='bx bxs-face' style='color: #2F4F4F' id="icon_menu"></i> <span
+				class="links_name">Your Profile</span> </a> <a href="#"><i
+				class='bx bx-cog' style='color: #2F4F4F' id="icon_menu"></i><span
+				class="links_name">Settings</span> </a> <a href="#" th:href="@{/logout}"><i
+				class='bx bx-log-out-circle' style='color: #2F4F4F' id="icon_menu"></i><span
+				class="links_name">Logout</span> </a>
+
+		</div>
+
 	</div>
 
-	<div class="content"><i onclick="toggleSidebar()"><ion-icon name="menu-sharp"></ion-icon></i>
-	
-	<div th:replace="${content}"></div>
+
+	<div class="content">
+		<div th:if="${session.message}" class="container">
+			<div th:classappend="${'alert-'+session.message.type}"
+				class="alert ml-5 mr-5 mt-3 text-center" role="alert">
+				<span th:text="${session.message.content}"></span>
+			</div>
+			<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+		</div>
+		<div th:replace="${content}"></div>
+
+
 	</div>
 
-	
+
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -87,7 +93,5 @@
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
 	<script th:src="@{/js/script.js}"></script>
-	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
