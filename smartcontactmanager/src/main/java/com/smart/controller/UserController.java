@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.security.Principal;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.smart.dao.ContactRepository;
 import com.smart.dao.UserRepository;
 import com.smart.entities.Contact;
 import com.smart.entities.User;
@@ -31,6 +33,9 @@ public class UserController {
 
 	@Autowired
 	private UserRepository userRepository;
+
+	@Autowired
+	private ContactRepository contactRepository;
 
 	@ModelAttribute
 	public void addCommonData(Model model, Principal principal) {
@@ -55,15 +60,14 @@ public class UserController {
 	}
 
 	/* processing add contact form */
+
 	@PostMapping("/process-contact")
-	public String processContact(
-			@ModelAttribute Contact contact,
-			@RequestParam("ProfileImage") MultipartFile file,
-			Principal principal,HttpSession session) {
+	public String processContact(@ModelAttribute Contact contact, @RequestParam("ProfileImage") MultipartFile file,
+			Principal principal, HttpSession session) {
 		try {
 			String name = principal.getName();
 			User user = this.userRepository.getUserByUserName(name);
-			
+
 			// processing and uploading file
 			if (file.isEmpty()) {
 				System.out.println("File is empty");
@@ -78,14 +82,27 @@ public class UserController {
 			user.getContact().add(contact);
 			contact.setUser(user);
 			this.userRepository.save(user);
-			session.setAttribute("message", new Message("Your contact is added","success"));
+			session.setAttribute("message", new Message("Your contact is added", "success"));
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("ERROR" + e.getMessage());
-			
-			session.setAttribute("message", new Message("Something went wrong","danger"));
+
+			session.setAttribute("message", new Message("Something went wrong", "danger"));
 
 		}
 		return "normal/add_contact_form";
 	}
+
+	// Show contact handeller
+
+	@GetMapping("show_contacts")
+	public String showContacts(Model model, Principal principal) {
+		model.addAttribute("title", "Show Contacts");
+		String userName = principal.getName();
+		User user = this.userRepository.getUserByUserName(userName);
+		List<Contact> contacts = this.contactRepository.findContactsByUser(user.getId());
+		model.addAttribute("contacts", contacts);
+		return "normal/show_contacts";
+	}
+
 }

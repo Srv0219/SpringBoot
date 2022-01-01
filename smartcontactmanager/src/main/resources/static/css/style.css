@@ -122,3 +122,14 @@
 	font-size: 36px;
 	cursor: pointer;
 } */
+
+
+/* show contacts */
+table {
+  counter-reset: section;
+}
+
+.count:before {
+  counter-increment: section;
+  content: counter(section);
+}
