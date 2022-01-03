@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import
+	url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap')
+	;
 
 .bg-primary {
 	background: #FFA500 !important;
@@ -40,25 +42,29 @@
 	}
 }
  */
- @media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
+@media screen and (max-height: 450px) {
+	.sidebar {
+		padding-top: 15px;
+	}
+	.sidebar a {
+		font-size: 18px;
+	}
 }
 
 .sidebar {
 	height: 100%;
-    width: 160px;
+	width: 160px;
 	background: #17202A;
 	z-index: 1;
-    top: 0;
-    left: 0;
+	top: 0;
+	left: 0;
 	position: fixed;
 	overflow-x: hidden;
-    padding-top: 16px;
+	padding-top: 16px;
 }
 
 .sidebar .logo_content .logo {
-	background-color:#FFFAFA;
+	background-color: #FFFAFA;
 	text-align: center;
 	margin: 20px 20px;
 	border-radius: 3px;
@@ -71,7 +77,6 @@
 	width: 100%;
 	padding: 10px;
 	text-decoration: none;
-	
 }
 
 .sidebar a:hover {
@@ -81,7 +86,7 @@
 	color: black;
 }
 
- .links_name {
+.links_name {
 	padding-left: 10px;
 	color: #D0D3D4;
 }
@@ -106,14 +111,10 @@
 	
 }
 
-
 .content {
 	/* background-color:#FFFAFA; */
-  margin-left: 160px; 
-  
-	
+	margin-left: 160px;
 }
- 
 
 /* .sidebar .crossBtn {
 	position: absolute;
@@ -123,13 +124,20 @@
 	cursor: pointer;
 } */
 
-
 /* show contacts */
 table {
-  counter-reset: section;
+	counter-reset: section;
 }
 
 .count:before {
-  counter-increment: section;
-  content: counter(section);
+	counter-increment: section;
+	content: counter(section);
+}
+
+/* profile image */
+.my_profile_picture {
+	width: 30px;
+	height: 30px;
+	border-radius:80px;
+	object-fit:cover;
 }
