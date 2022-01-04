@@ -8,7 +8,13 @@ th:replace="normal/base::Layout(~{::section})">
 <body>
 
 <section>
-<h1>Dashboard</h1>
+<div class="container text-center">
+<img  alt="Responsive image" id="dashboard_image" src="../image/purr.png">
+
+<h3> <span>Save your Contact </span> </h3>
+<h4> <span>You don't have to remember</span> </h4>
+<a th:href="@{/user/add_contact_form}" type="button" class="btn btn-warning btn-lg mt-3">Save Here</a>
+</div>
 </section>
 
 </body>

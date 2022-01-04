@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org"
+	th:replace="normal/base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<title th:value="${title}"></title>
+</head>
+<body>
+
+	<section>
+		<div class="container text-center mt-5">
+			<img alt="pro_pic"
+				style="height: 100px; width: 100px; border-radius: 50px"
+				th:src="@{'/image/'+${user.imageUrl}}" src="">
+			<h4 >
+				<span  th:text="${user.name}" style="font-weight: bold;"></span>
+			</h4>
+			
+			<h5 > <span id="User_detail" th:text="${user.id}" style="font-weight: bold; font-size: 12px;"></span> </h5>
+			<table class="table table-borderless  ">
+				<thead>
+					
+				</thead>
+				<tbody>
+					<tr>
+					
+						<th scope="row"><i class='bx bxl-gmail' id="icon_menu"></i></th>
+						<td><span style="font-family: 'Open Sans', sans-serif;font-weight: bold;" th:text="${user.email}"></span></td>
+					</tr>
+
+
+					<tr>
+						<th scope="row"><i class='bx bxs-face' id="icon_menu"></i></th>
+						<td><span style="font-family: 'Open Sans', sans-serif;font-weight: bold;" th:text="${user.role}"></span></td>
+					</tr>
+
+
+					<tr>
+						<th scope="row"><i class='bx bxs-bolt-circle' id="icon_menu"></i></th>
+						<td><span style="font-family: 'Open Sans', sans-serif;font-weight: bold;"  th:text="${user.enabled}"></span></td>
+					</tr>
+
+					<tr>
+						<th scope="row"><i class='bx bx-message-square-error' id="icon_menu"></i></th>
+						<td><span style="font-family: 'Open Sans', sans-serif;font-weight: bold;"  th:text="${user.about}"></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+</body>
+</html>

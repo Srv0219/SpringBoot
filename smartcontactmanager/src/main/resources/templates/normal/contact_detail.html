@@ -3,15 +3,15 @@
 	th:replace="normal/base::Layout(~{::section})">
 <head>
 <meta charset="ISO-8859-1">
-<title>Contact details</title>
+<title th:text="${title}"></title>
 </head>
 <body>
 
 	<section>
 
-		<div class="container m-5 ">
+		<div class="container mt-5 ">
 			<div class="card">
-				<div class="card-body">
+				<div class="card-body" th:if=${contact}>
 					<div class="container text-center">
 						<img alt="pro_pic"
 							style="height: 100px; width: 100px; border-radius: 50px"
@@ -23,11 +23,11 @@
 							( <span th:text="${contact.secondName}"></span> )
 						</h5>
 
-						<table class="table table-borderless ">
+						<table class="table table-borderless  ">
 							<thead>
 								<tr>
 									<th scope="col">ID</th>
-									<th scope="col"><span th:text="${contact.cId}"></span></th>
+									<td scope="col"><span th:text="${contact.cId}"></span></th>
 
 								</tr>
 							</thead>
@@ -55,15 +55,21 @@
 							<span style="font-family: monospace; font-weight: bold;"
 								th:text="${contact.description}"></span>
 						</div>
-						<button class="btn btn-danger">
-							Delete</i>
+						<button  class="btn btn-danger">
+							Delete
 						</button>
-						<button class="btn btn-primary ">
+						<form th:action="@{'/user/update-contact/'+${contact.cId}}"
+							method="post">
+							<button class="btn btn-primary btn-sm mt-2">
 							Update
-						</button>
+							</button>
+						</form>
 					</div>
 
 				</div>
+
+				<h5 class="text-center" th:unless="${contact}">You don't have
+					contact</h5>
 			</div>
 		</div>
 

@@ -141,3 +141,17 @@ table {
 	border-radius:80px;
 	object-fit:cover;
 }
+
+#User_detail{
+	background-color: #90EE90;
+	padding:10px;
+	border-radius: 10px;
+}
+
+#dashboard_image{
+	width:400px;
+	height:400px;
+	 background-attachment: fixed;
+  background-position: center;
+}
+
