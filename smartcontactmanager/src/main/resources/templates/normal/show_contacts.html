@@ -10,6 +10,17 @@
 	<section>
 		<div class="container">
 			<h3 class="text-center m-3">Your Contacts</h3>
+			
+			<!-- search -->
+			<div class="search-container my-4">
+				<input onkeyup="search()" id="search-input" type="text" class="form-control"
+					placeholder="Search contacts" />
+				<div class="search-result">
+				
+				</div>
+			</div>
+
+        <!--  table -->
 			<div class="table-responsive">
 				<table class="table">
 					<thead>
@@ -42,8 +53,7 @@
 									<button class="btn btn-primary btn-sm">
 										<i class='bx bxs-pen' style='color: white;'></i>
 									</button>
-								</form>
-								</td>
+								</form></td>
 						</tr>
 
 					</tbody>

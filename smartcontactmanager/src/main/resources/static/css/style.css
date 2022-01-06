@@ -138,20 +138,34 @@ table {
 .my_profile_picture {
 	width: 30px;
 	height: 30px;
-	border-radius:80px;
-	object-fit:cover;
+	border-radius: 80px;
+	object-fit: cover;
 }
 
-#User_detail{
+#User_detail {
 	background-color: #90EE90;
-	padding:10px;
+	padding: 10px;
 	border-radius: 10px;
 }
 
-#dashboard_image{
-	width:400px;
-	height:400px;
-	 background-attachment: fixed;
-  background-position: center;
+#dashboard_image {
+	width: 400px;
+	height: 400px;
+	background-attachment: fixed;
+	background-position: center;
 }
 
+/* search */
+.search-container {
+	position: relative;
+}
+
+.search-result {
+	position: absolute;
+	background: white;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid gray ;
+	display: none;
+	
+}

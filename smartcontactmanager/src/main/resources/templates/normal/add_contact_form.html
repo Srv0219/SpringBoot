@@ -85,12 +85,16 @@
 									<textarea class="form-control" name="description"
 										id="description" rows="5" placeholder="Enter here description"></textarea>
 								</div>
-
+								
 								<!--  Image -->
-
+								<img  id="blah" alt="your image"
+									style="height: 50px; width: 50px; border-radius: 50px"
+									th:src="@{'/image/'+${contact.image}}" >
 								<div class="input-group">
 									<div class="custom-file">
-										<input class="custom-file-upload" type="file" name="ProfileImage">
+										<input class="custom-file-upload" type="file"
+										onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])"
+											name="ProfileImage">
 									</div>
 
 								</div>
